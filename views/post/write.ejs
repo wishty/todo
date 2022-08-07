@@ -1,0 +1,21 @@
+<%- include("../layout/nav.ejs") %>
+
+<div class="container mt-4">
+  <form action='/posts' method="POST">
+    <div class="form-group">
+      <label for="titleInput">할일</label>
+      <input type="text" class="form-control" id="titleInput" name="title" value="">
+    </div>
+    <div class="form-group">
+      <label for="contentInput">내용</label>
+      <input type="text" class="form-control" id="contentInput" name="content" value="">
+      <input type="hidden" class="form-control" id="authorInput" name="author" value="">
+      <input type="hidden" class="form-control" id="shortIdInput" name="shortId" value="">
+    </div>
+    <button type="submit" class="btn btn-primary">등록</button>
+  </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>

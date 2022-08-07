@@ -1,0 +1,36 @@
+<%- include("../layout/nav.ejs") %>
+
+<div>
+    <p class="text-center">
+        <% if (!user) { %>
+            <a class="nav-link" href="/login">Login</a>
+        <% } else { %>
+            <a class="nav-link" href="/logout">Logout</a> [<%= user.name %>님 로그온]
+        <% } %>
+    </p>
+    <p class="text-center">
+        <% for(let i=1; i<=totalPage; i++) { %>
+        <a href="<%=path%>?page=<%=i%>&perPage=<%=perPage%>"><span><% if (i == page) { %> <b><%=i%></b> %> <% } else {  %> <%=i%> <% }  %></span></a>
+        <% } %>
+    </p>
+</div>
+<div class="container">
+
+<ul class="list-group">
+<% posts.forEach((post)=>{ %>
+    <li class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+          <a href="/posts/<%= post.shortId %>"><h5 class="mb-1"><%= post.title %></h5></a>
+        </div>
+        <a href="/users/<%= post.author.shortId %>/posts"><p class="mb-1"><%= post.author.name %></a></p>
+        <p><%= formatDate(post.createdAt) %></p>
+    </li>
+<%}) %>
+</ul>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script></body>
+<script>
+</script>
+</html>
